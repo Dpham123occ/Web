@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Counter Website</title>
-    <script src="counter.js"></script>
+    <title>Counter</title>
+    <script>
+        // Function to increase the counter
+        function increaseCounter() {
+            // Get the current count from local storage
+            let count = localStorage.getItem('count');
+
+            // If count is null (i.e., no previous count found), set it to 0
+            if (count === null) {
+                count = 0;
+            }
+
+            // Increase the count by 1
+            count++;
+
+            // Update the counter display
+            document.getElementById('counter').innerText = count;
+
+            // Store the updated count in local storage
+            localStorage.setItem('count', count);
+        }
+    </script>
 </head>
 <body>
     <h1>Counter</h1>
     <p>Count: <span id="counter">0</span></p>
-    <button id="incrementBtn">Increment</button>
+    <button onclick="increaseCounter()">Increase Count</button>
 </body>
 </html>
